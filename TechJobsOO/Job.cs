@@ -11,6 +11,7 @@ namespace TechJobsOO
         public Location EmployerLocation { get; set; }
         public PositionType JobType { get; set; }
         public CoreCompetency JobCoreCompetency { get; set; }
+        public string Value { get; set; }
 
         // TODO: Add the two necessary constructors.
         public Job()
@@ -31,6 +32,16 @@ namespace TechJobsOO
 
         }
         // TODO: Generate Equals() and GetHashCode() methods.
+        public override string ToString()
+        {
+            string dna = "Data not Available";
+            string empN = EmployerName.Value;
+            string local = EmployerLocation.Value;
+            string posTy = JobType.Value;
+            string coreC = JobCoreCompetency.Value;
+
+            return $" ID: {Id}\n Name: {(!string.IsNullOrEmpty(Name) ? Name : dna) } \n Employer: {(!string.IsNullOrEmpty(empN) ? empN : dna)} \n Location: {(!string.IsNullOrEmpty(local) ? local :dna)} \n Position Type: {(!string.IsNullOrEmpty(posTy) ? posTy : dna)} \n Core Competency: {(!string.IsNullOrEmpty(coreC) ? coreC :dna)}";
+        }
         public override bool Equals(object obj)
         {
             return obj is Job employer &&
